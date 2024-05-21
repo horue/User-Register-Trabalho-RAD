@@ -23,7 +23,10 @@ cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS Tabela1 (nome TEXT, curso TEXT, matricula INTEGER)")
 def VerificarCPF(CPF):
     #CPF deve ser na forma "123.456.789-10"
+    print(CPF)
     for trecho in CPF.split("."):
+        if len(CPF)!=14:
+            return False
         if len(trecho)!=3:
             return False
         else:
@@ -32,7 +35,6 @@ def VerificarCPF(CPF):
 def inserevalores(Valor1, Valor2, Valor3):
     #Insere linha na tabela
     cursor.execute(f"INSERT INTO Tabela1 VALUES ('{Valor1}', '{Valor2}', '{Valor3}')")
-    print('adicionado')
     pegavalores()
 
 def pegavalores():
