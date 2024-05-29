@@ -24,7 +24,7 @@ cursor = connection.cursor()
 cursor.execute("CREATE TABLE IF NOT EXISTS Tabela1 (nome TEXT, cpf TEXT, estado TEXT)")
 
 #Le a variavel config
-config = open('config.txt', 'r')
+config = open('config.txt', 'r', encoding='UTF-8')
 config_read = config.read()
 config_final = config_read.split(';')
 
@@ -43,6 +43,7 @@ def VerificarCPF(CPF):
         
 def Verificar_Estado(estado):
     print(estado)
+    print(config_final)
     if estado in config_final:
         return True
     else:
